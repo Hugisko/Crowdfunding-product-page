@@ -1,0 +1,14 @@
+.btn {
+    border: none;
+    border-radius: 50px;
+    background: var(--Moderate-cyan);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: var(--Dark-cyan);
+}

@@ -1,0 +1,9 @@
+footer {
+    margin-top: auto;
+    text-align: center;
+}
+
+footer span {
+    color: var(--Moderate-cyan);
+    font-weight: 700;
+}

@@ -1,0 +1,131 @@
+header {
+    width: 100%;
+    height: 300px;
+    background: url('../../assets/image-hero-mobile.jpg') no-repeat center;
+    background-size: cover;
+    position: relative;
+}
+
+.navigation {
+    --nav-padding: 1.5rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--nav-padding);
+}
+
+.header__menu {
+    z-index: 2;
+}
+
+.header__menu-btn {
+    border: none;
+    background-color: transparent;
+}
+
+.header__menu-links {
+    position: absolute;
+    left: var(--nav-padding);
+    bottom: 0;
+    width: calc(100% - 2 * var(--nav-padding));
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 8px;
+}
+
+.header__menu-links li {
+    padding: 1.3rem 1rem;
+}
+
+.header__menu-links li:nth-of-type(2) {
+    border-top: 1px solid rgba(100, 100, 100, 0.329);
+    border-bottom: 1px solid rgba(100, 100, 100, 0.329);
+}
+
+.header__menu-links a {
+    color: var(--Black);
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.navbar {
+    display: none;
+}
+
+.navbar__links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 3rem;
+}
+
+.navbar__links a {
+    color: white;
+    font-weight: 500;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.navbar__links a:hover {
+    color: var(--Moderate-cyan);
+}
+
+@media (min-width: 550px) {
+    header {
+        height: 350px;
+    }
+
+    .navigation {
+        --nav-padding: 3rem;
+    }
+
+    .header__menu-links li {
+        padding: 1.5rem 2rem;
+    }
+}
+
+@media (min-width: 768px) {
+    header {
+        height: 400px;
+    }
+
+    .navigation {
+        padding-inline: 7rem;
+    }
+
+    .header__menu-links {
+        left: 7rem;
+        width: calc(100% - 14rem);
+    }
+
+    .header__menu-links li {
+        padding: 1.5rem 2rem;
+    }
+}
+
+
+@media (min-width: 900px) {
+    header {
+        background: url('../../assets/image-hero-desktop.jpg') no-repeat center;
+        background-size: cover;
+    }
+
+    .navigation {
+        padding-inline: 10rem;
+    }
+
+    .header__menu {
+        display: none;
+    }
+
+    .navbar {
+        display: block;
+    }
+
+    .navbar__links a {
+        font-size: 1rem;
+    }
+
+}

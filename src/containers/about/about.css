@@ -1,0 +1,30 @@
+.about__section.section {
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.about__section h2 {
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+.about__section p {
+    color: var(--Dark-gray);
+}
+
+.stands {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+@media (min-width: 900px) {
+    .about__section.section {
+        padding: 3rem;
+    }
+}

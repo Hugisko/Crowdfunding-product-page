@@ -1,0 +1,247 @@
+.modal__stand {
+    border: 1px solid rgb(229, 229, 229);
+    border-radius: 8px;
+}
+
+.modal__stand.active {
+    border-color: var(--Moderate-cyan);
+}
+
+.modal__stand.empty {
+    opacity: 0.5;
+}
+
+.modal__stand.empty .modal__stand-selection {
+    cursor: auto;
+}
+
+.empty .modal__stand-selection:hover h4 {
+    color: var(--Black);
+}
+
+.empty .modal__stand-selection:hover .modal__stand-selection__btn {
+    border-color: rgb(229, 229, 229);
+}
+
+.modal__stand-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.modal__stand-content,
+.modal__stand-form {
+    padding: 1.5rem 1rem;
+}
+
+.modal__stand-selection {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+}
+
+.modal__stand-selection:hover h4 {
+    color: var(--Moderate-cyan);
+}
+
+.modal__stand-selection:hover .modal__stand-selection__btn {
+    border-color: var(--Moderate-cyan);
+}
+
+.modal__stand-selection__btn {
+    width: 25px;
+    height: 25px;
+    border: 2px solid rgb(229, 229, 229);
+    border-radius: 50%;
+    position: relative;
+}
+
+.active .modal__stand-selection__btn::before {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    background: var(--Moderate-cyan);
+    border-radius: 50%;
+}
+
+.modal__stand-title {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal__stand-title h4 {
+    color: var(--Black);
+    font-weight: 700;
+}
+
+.modal__stand-title p {
+    color: var(--Moderate-cyan);
+    font-weight: 500;
+}
+
+.modal__stand>p {
+    color: var(--Dark-gray);
+}
+
+.modal__stand-left,
+.modal__stand-left__selection {
+    color: var(--Dark-gray);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.modal__stand-left span,
+.modal__stand-left__selection span {
+    color: var(--Black);
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.modal__stand-left__selection {
+    display: none;
+}
+
+.modal__stand-form {
+    border-top: 1px solid rgb(229, 229, 229);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.modal__stand-form__label {
+    color: var(--Dark-gray);
+    font-weight: 500;
+}
+
+.modal__stand-form__field {
+    display: flex;
+    gap: 1rem;
+    position: relative;
+}
+
+.modal__stand-form__field::before {
+    content: '$';
+    position: absolute;
+    top: 50%;
+    left: 0.5rem;
+    transform: translateY(-50%);
+    color: var(--Dark-gray);
+}
+
+.modal__stand-form__field-input {
+    border-radius: 50px;
+    border: 1px solid rgb(229, 229, 229);
+    padding-left: 1rem;
+    width: 100%;
+    max-width: 150px;
+    flex: 1;
+    font-weight: 700;
+    color: var(--Black);
+    caret-color: var(--Moderate-cyan);
+    cursor: pointer;
+    outline: none;
+}
+
+.modal__stand-form__field-input:is(:focus, :hover) {
+    border-color: var(--Moderate-cyan);
+}
+
+.modal__stand-form__field .btn {
+    flex: 1;
+    max-width: 150px;
+}
+
+.modal__stand-form__field-input.error {
+    border-color: red;
+    animation-name: bounce;
+    animation-duration: .5s;
+    animation-delay: 0.25s;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateX(0px);
+        timing-function: ease-in;
+    }
+
+    37% {
+        transform: translateX(5px);
+        timing-function: ease-out;
+    }
+
+    55% {
+        transform: translateX(-5px);
+        timing-function: ease-in;
+    }
+
+    73% {
+        transform: translateX(4px);
+        timing-function: ease-out;
+    }
+
+    82% {
+        transform: translateX(-4px);
+        timing-function: ease-in;
+    }
+
+    91% {
+        transform: translateX(2px);
+        timing-function: ease-out;
+    }
+
+    96% {
+        transform: translateX(-2px);
+        timing-function: ease-in;
+    }
+
+    100% {
+        transform: translateX(0px);
+        timing-function: ease-in;
+    }
+}
+
+@media (min-width: 375px) {
+    .modal__stand-form__field-input {
+        padding-left: 2rem;
+    }
+
+    .modal__stand-form__field::before {
+        left: 1rem;
+    }
+}
+
+@media (min-width: 768px) {
+
+    .modal__stand-content,
+    .modal__stand-form {
+        padding: 1.5rem;
+    }
+}
+
+@media (min-width: 900px) {
+    .modal__stand-left__selection {
+        display: flex;
+        margin-left: auto;
+    }
+
+    .modal__stand-left {
+        display: none;
+    }
+
+    .modal__stand-title {
+        flex-direction: row;
+    }
+
+    .modal__stand-title {
+        gap: 1rem;
+    }
+
+    .modal__stand-form {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
