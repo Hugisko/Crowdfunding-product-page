@@ -36,7 +36,7 @@ const Monitor = ({ handleModal, setSelectStand, handleOverlay }) => {
               </g>
             </svg>
           </div>
-          <p>{bookmark ? "Bookmarked" : "Bookmark"}</p>
+          <span>{bookmark ? "Bookmarked" : "Bookmark"}</span>
         </button>
       </div>
     </section>
