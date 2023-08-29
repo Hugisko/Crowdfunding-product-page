@@ -1,7 +1,7 @@
 import { Stand } from "../../components";
 import "./about.css";
 
-const About = ({ handleModal, handleSelection, handleOverlay }) => {
+const About = () => {
   return (
     <section className="about__section section">
       <h2>About this project</h2>
@@ -24,9 +24,6 @@ const About = ({ handleModal, handleSelection, handleOverlay }) => {
           pledge="25"
           leftNumber="101"
           btn="Select Reward"
-          handleModal={handleModal}
-          handleSelection={handleSelection}
-          handleOverlay={handleOverlay}
         />
         <Stand
           title="Black Edition Stand"
@@ -34,9 +31,6 @@ const About = ({ handleModal, handleSelection, handleOverlay }) => {
           pledge="75"
           leftNumber="64"
           btn="Select Reward"
-          handleModal={handleModal}
-          handleSelection={handleSelection}
-          handleOverlay={handleOverlay}
         />
         <Stand
           title="Mahogany Special Edition"
@@ -44,9 +38,6 @@ const About = ({ handleModal, handleSelection, handleOverlay }) => {
           pledge="200"
           leftNumber="0"
           btn="Out of Stock"
-          handleModal={handleModal}
-          handleSelection={handleSelection}
-          handleOverlay={handleOverlay}
         />
       </div>
     </section>

@@ -1,6 +1,8 @@
+import { useGlobalContext } from "../../context";
 import "./progress.css";
 
-const Progress = ({ stats }) => {
+const Progress = () => {
+  const { stats } = useGlobalContext();
   return (
     <section className="progress__section section">
       <div className="progress__stats">

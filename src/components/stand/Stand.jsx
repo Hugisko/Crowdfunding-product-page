@@ -1,20 +1,20 @@
+import { useGlobalContext } from "../../context";
 import Button from "../button/Button";
 import "./stand.css";
 
-const Stand = ({
-  title,
-  info,
-  pledge,
-  leftNumber,
-  btn,
-  handleModal,
-  handleSelection,
-  handleOverlay,
-}) => {
+const Stand = ({ title, info, pledge, leftNumber, btn }) => {
+  const {
+    handleOverlay,
+    handleSelection,
+    isMountedModal,
+    setIsMountedModal,
+    handleModal,
+  } = useGlobalContext();
   const handleBtn = () => {
     if (leftNumber === "0") {
       return;
     }
+    setIsMountedModal(!isMountedModal);
     handleModal();
     handleOverlay();
     handleSelection(title);

@@ -1,18 +1,13 @@
-import { useState } from "react";
 import { Footer, Header, Main } from "./containers";
+import { useGlobalContext } from "./context";
 
 function App() {
-  const [overlay, setOverlay] = useState(false);
-  const [stats, setStats] = useState({ backed: 89914, total: 5007 });
-  const handleOverlay = () => {
-    setOverlay(!overlay);
-  };
-
+  const { overlay } = useGlobalContext();
   return (
     <>
       {overlay && <div className="overlay"></div>}
-      <Header handleOverlay={handleOverlay} />
-      <Main handleOverlay={handleOverlay} stats={stats} setStats={setStats} />
+      <Header />
+      <Main />
       <Footer />
     </>
   );

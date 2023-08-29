@@ -114,3 +114,73 @@ body {
     padding-inline: 3rem;
   }
 }
+
+@keyframes inAnimation {
+  0% {
+      transform: scale(0);
+      visibility: hidden;
+  }
+
+  100% {
+      transform: scale(1);
+      visibility: visible;
+  }
+}
+
+@keyframes outAnimation {
+  0% {
+      transform: scale(1);
+  }
+
+  100% {
+      transform: scale(0);
+      visibility: hidden;
+  }
+}
+
+@keyframes inAnimationModal {
+  0% {
+      opacity: 0;
+      visibility: hidden;
+  }
+
+  100% {
+      opacity: 1;
+      visibility: visible;
+  }
+}
+
+@keyframes outAnimationModal {
+  0% {
+      opacity: 1;
+  }
+
+  100% {
+      opacity: 0;
+      visibility: hidden;
+  }
+}
+
+@keyframes inAnimationThankModal {
+  0%,50% {
+      opacity: 0;
+      visibility: hidden;
+  }
+
+
+  100% {
+      opacity: 1;
+      visibility: visible;
+  }
+}
+
+@keyframes outAnimationThankModal {
+  0% {
+      opacity: 1;
+  }
+
+  100% {
+      opacity: 0;
+      visibility: hidden;
+  }
+}

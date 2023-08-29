@@ -1,14 +1,36 @@
 import "./thankModal.css";
 import checkImg from "../../assets/icon-check.svg";
 import { Button } from "../../components";
+import { useGlobalContext } from "../../context";
 
-const ThankModal = ({ handleThank, handleOverlay }) => {
+const ThankModal = () => {
+  const {
+    handleOverlay,
+    handleThank,
+    isMountedThankModal,
+    setIsMountedThankModal,
+  } = useGlobalContext();
   const handleBtn = () => {
-    handleThank();
+    setIsMountedThankModal(!isMountedThankModal);
     handleOverlay();
   };
+
+  const mountedStyle = {
+    animation: "inAnimationThankModal 0.8s ease-in",
+  };
+  const unmountedStyle = {
+    animation: "outAnimationThankModal 0.8s ease-out",
+    animationFillMode: "forwards",
+  };
+
   return (
-    <div className="thankModal__container">
+    <div
+      className="thankModal__container"
+      style={isMountedThankModal ? mountedStyle : unmountedStyle}
+      onAnimationEnd={() => {
+        if (!isMountedThankModal) handleThank();
+      }}
+    >
       <div className="thankModal__img">
         <img src={checkImg} alt="check icon" />
       </div>

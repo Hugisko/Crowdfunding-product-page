@@ -35,6 +35,10 @@ header {
     border-radius: 8px;
 }
 
+.header__menu-links.show {
+    transform: scale(1);
+}
+
 .header__menu-links li {
     padding: 1.3rem 1rem;
 }

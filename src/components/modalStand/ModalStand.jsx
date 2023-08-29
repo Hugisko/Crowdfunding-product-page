@@ -1,21 +1,22 @@
 import { useState } from "react";
 import Button from "../button/Button";
 import "./modalStand.css";
+import { useGlobalContext } from "../../context";
 
-const ModalStand = ({
-  title,
-  info,
-  pledge = null,
-  leftNumber = null,
-  handleSelection,
-  selectedStand,
-  handleModal,
-  handleThank,
-  setStats,
-  stats,
-}) => {
+const ModalStand = ({ title, info, pledge = null, leftNumber = null }) => {
   const [input, setInput] = useState("");
   const [error, setError] = useState(false);
+  const {
+    stats,
+    setStats,
+    handleThank,
+    handleOptions,
+    selectedOption,
+    isMountedModal,
+    setIsMountedModal,
+    isMountedThankModal,
+    setIsMountedThankModal,
+  } = useGlobalContext();
 
   const handleBtn = () => {
     const numbers = /^[0-9]+$/;
@@ -28,10 +29,11 @@ const ModalStand = ({
     const num = parseInt(input);
     const pledgeNum = parseInt(pledge);
 
-    if (num < pledge || num === 0) {
+    if (num < pledgeNum || num === 0) {
       setError(true);
     } else {
-      handleModal();
+      setIsMountedModal(!isMountedModal);
+      setIsMountedThankModal(!isMountedThankModal);
       handleThank();
       setStats({
         backed: stats.backed + parseInt(input),
@@ -45,12 +47,12 @@ const ModalStand = ({
     <div
       className={`${
         leftNumber === "0" ? "modal__stand empty" : "modal__stand"
-      } ${selectedStand === title ? "active" : ""}`}
+      } ${selectedOption === title ? "active" : ""}`}
     >
       <div className="modal__stand-content">
         <span
           className="modal__stand-selection"
-          onClick={() => handleSelection(title, leftNumber)}
+          onClick={() => handleOptions(title, leftNumber)}
         >
           <div className="modal__stand-selection__btn"></div>
           <div className="modal__stand-title">
@@ -70,7 +72,7 @@ const ModalStand = ({
           </p>
         )}
       </div>
-      {selectedStand === title && leftNumber !== "0" && (
+      {selectedOption === title && leftNumber !== "0" && (
         <div className="modal__stand-form">
           <label htmlFor="modal__stand-form__label">Enter your pledge</label>
           <div className="modal__stand-form__field">

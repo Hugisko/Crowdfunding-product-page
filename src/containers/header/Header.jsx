@@ -2,14 +2,29 @@ import "./header.css";
 import logo from "../../assets/logo.svg";
 import menu from "../../assets/icon-hamburger.svg";
 import close_menu_btn from "../../assets/icon-close-menu.svg";
-import { useState } from "react";
+import { useGlobalContext } from "../../context";
 
-const Header = ({ handleOverlay }) => {
-  const [showMenu, setShowMenu] = useState(false);
+const Header = () => {
+  const {
+    handleOverlay,
+    isMountedMenu,
+    setIsMountedMenu,
+    setShowMenu,
+    showMenu,
+  } = useGlobalContext();
+
+  const mountedStyle = { animation: "inAnimation 0.4s ease-in" };
+  const unmountedStyle = {
+    animation: "outAnimation 0.4s ease-out",
+    animationFillMode: "forwards",
+  };
+
   const handleMenu = () => {
-    setShowMenu(!showMenu);
+    setIsMountedMenu(!isMountedMenu);
+    if (!showMenu) setShowMenu(!showMenu);
     handleOverlay();
   };
+
   return (
     <header>
       <nav className="navigation">
@@ -29,7 +44,13 @@ const Header = ({ handleOverlay }) => {
             )}
           </button>
           {showMenu && (
-            <ul className="header__menu-links">
+            <ul
+              className="header__menu-links"
+              style={isMountedMenu ? mountedStyle : unmountedStyle}
+              onAnimationEnd={() => {
+                if (!isMountedMenu) setShowMenu(!showMenu);
+              }}
+            >
               <li>
                 <a href="#">About</a>
               </li>

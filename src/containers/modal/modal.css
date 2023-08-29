@@ -13,6 +13,7 @@
     z-index: 2;
 }
 
+
 .modal__container::-webkit-scrollbar {
     width: 5px;
     background: var(--Dark-gray);
@@ -38,7 +39,7 @@
     cursor: pointer;
 }
 
-.modal__container>p {
+.modal__container > p {
     color: var(--Dark-gray);
     margin-block: 1.5rem;
 }

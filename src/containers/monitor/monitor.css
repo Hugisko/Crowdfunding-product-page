@@ -52,7 +52,7 @@
     opacity: 0.7;
 }
 
-.bookmark p {
+.bookmark span {
     display: none;
 }
 
@@ -60,7 +60,7 @@
     fill: var(--Dark-cyan);
 }
 
-.bookmark.active p {
+.bookmark.active span {
     color: var(--Dark-cyan);
 }
 
@@ -79,7 +79,7 @@
         padding-right: 1.5rem;
     }
 
-    .bookmark p {
+    .bookmark span {
         display: block;
     }
 }

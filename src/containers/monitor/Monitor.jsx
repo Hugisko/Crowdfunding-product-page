@@ -2,11 +2,20 @@ import "./monitor.css";
 import logo from "../../assets/logo-mastercraft.svg";
 import { Button } from "../../components";
 import { useState } from "react";
+import { useGlobalContext } from "../../context";
 
-const Monitor = ({ handleModal, setSelectStand, handleOverlay }) => {
+const Monitor = () => {
   const [bookmark, setBookmark] = useState(false);
+  const {
+    handleOverlay,
+    setSelectStand,
+    isMountedModal,
+    setIsMountedModal,
+    handleModal,
+  } = useGlobalContext();
 
   const handleBtn = () => {
+    setIsMountedModal(!isMountedModal);
     handleModal();
     setSelectStand("");
     handleOverlay();
